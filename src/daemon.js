@@ -95,9 +95,9 @@ class Daemon {
       let options
 
       if (this._type === 'go') {
-        options = ['-listen', `/unix${this._sock}`, '-dht']
+        options = ['-listen', `/unix${this._sock}`, '-dht', '-pubsub']
       } else {
-        options = ['--sock', this._sock, '--dht']
+        options = ['--sock', this._sock, '--dht', '-pubsub']
       }
 
       const daemon = execa(this._binPath, options)
